@@ -23,20 +23,33 @@ const Card = ({ icon, text, val, unit }) => {
     );
 };
 
-const WeatherMetrics = () => {
+const WeatherMetrics = ({ weather }) => {
+    const { uvindex, feelslike, humidity, windspeed, pressure, visibility } =
+        weather.currentConditions;
+
     return (
         <div className={"grid grid-cols-3 gap-2 sm:gap-5"}>
-            <Card icon={mdiWhiteBalanceSunny} text="UV" val="3" unit="weak" />
+            <Card icon={mdiWhiteBalanceSunny} text="UV" val={uvindex} unit="" />
             <Card
                 icon={mdiThermometerLines}
                 text="Feels like"
-                val="38"
+                val={feelslike}
                 unit="°"
             />
-            <Card icon={mdiWaterPercent} text="Humidity" val="33" unit="%" />
-            <Card icon={mdiWeatherWindy} text="W speed" val="5" unit="mph" />
-            <Card icon={mdiGauge} text="Pressure" val="1004" unit="hPa" />
-            <Card icon={mdiEye} text="Visibility" val="9" unit="mi" />
+            <Card
+                icon={mdiWaterPercent}
+                text="Humidity"
+                val={humidity}
+                unit="%"
+            />
+            <Card
+                icon={mdiWeatherWindy}
+                text="W speed"
+                val={windspeed}
+                unit="mph"
+            />
+            <Card icon={mdiGauge} text="Pressure" val={pressure} unit="hPa" />
+            <Card icon={mdiEye} text="Visibility" val={visibility} unit="mi" />
         </div>
     );
 };

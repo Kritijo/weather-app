@@ -35,7 +35,9 @@ const getTimePercentage = (sunrise, sunset) => {
     return progress * 100;
 };
 
-const SunCycle = ({ sunrise = "05:23:05", sunset = "20:16:33" }) => {
+const SunCycle = ({ weather }) => {
+    const sunrise = weather.currentConditions.sunrise;
+    const sunset = weather.currentConditions.sunset;
     const percentage = getTimePercentage(sunrise, sunset);
 
     return (
