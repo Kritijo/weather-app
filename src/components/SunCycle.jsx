@@ -2,9 +2,8 @@ import Icon from "@mdi/react";
 import { mdiWhiteBalanceSunny, mdiWeatherSunset } from "@mdi/js";
 import convertTo12Hour from "../utils/convertTo12Hour";
 
-const getTimePercentage = (sunrise, sunset) => {
-    const now = new Date();
-
+const getTimePercentage = (sunrise, sunset, currTime) => {
+    const [crH, crM, crS] = currTime.split(":").map(Number);
     const [srH, srM, srS] = sunrise.split(":").map(Number);
     const [ssH, ssM, ssS] = sunset.split(":").map(Number);
 
@@ -27,6 +26,15 @@ const getTimePercentage = (sunrise, sunset) => {
         ssS
     );
 
+    const now = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate(),
+        crH,
+        crM,
+        crS
+    );
+
     const totalDaylightMs = sunsetTime - sunriseTime;
     const elapsedMs = now - sunriseTime;
 
@@ -36,12 +44,13 @@ const getTimePercentage = (sunrise, sunset) => {
 };
 
 const SunCycle = ({ weather }) => {
+    const currTime = weather.currentConditions.datetime;
     const sunrise = weather.currentConditions.sunrise;
     const sunset = weather.currentConditions.sunset;
-    const percentage = getTimePercentage(sunrise, sunset);
+    const percentage = getTimePercentage(sunrise, sunset, currTime);
 
     return (
-        <div className="bg-[rgba(255,255,255,0.5)] rounded-2xl p-4 ">
+        <div className="bg-[rgba(255,255,255,0.1)] rounded-2xl p-4 ">
             <div className="flex justify-between items-center gap-4">
                 <div className="flex flex-col items-center">
                     <Icon path={mdiWhiteBalanceSunny} size={1} />
