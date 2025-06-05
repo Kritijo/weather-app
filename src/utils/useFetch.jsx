@@ -7,10 +7,11 @@ const useFetch = (input, tempUnit) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        if (!input) return;
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=${tempUnit}&key=WE3DTCFXMA4ZSAM2M2LYSRYFH&contentType=json`
+                    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=uk&key=WE3DTCFXMA4ZSAM2M2LYSRYFH&contentType=json`
                 );
 
                 setData(response.data);

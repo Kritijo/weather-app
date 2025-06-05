@@ -10,7 +10,7 @@ import {
 
 const Card = ({ icon, text, val, unit }) => {
     return (
-        <div className="bg-[rgba(255,255,255,0.5)] flex flex-col p-4 rounded-2xl gap-1">
+        <div className="bg-[rgba(255,255,255,0.1)] flex flex-col p-4 rounded-2xl gap-1">
             <Icon path={icon} size={1} />
             <p className="text-sm flex-1">{text}</p>
             <p>
