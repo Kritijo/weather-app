@@ -9,6 +9,7 @@ import Loader from "./components/Loader";
 import useFetch from "./utils/useFetch";
 import useLocation from "./utils/useLocation";
 import changeBg from "./utils/changeBg";
+import DailyForecast from "./components/DailyForecast";
 
 function App() {
     const [query, setQuery] = useState(null);
@@ -31,9 +32,10 @@ function App() {
                             weather={data}
                             locationName={locationName}
                         />
-                        <SunCycle weather={data} />
                         <HourlyForecast weather={data} />
+                        <DailyForecast weather={data} />
                         <WeatherMetrics weather={data} />
+                        <SunCycle weather={data} />
                     </>
                 )}
             </main>
