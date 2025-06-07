@@ -8,9 +8,9 @@ const changeBg = (weather) => {
 
     if (datetime >= sunrise && hour < 12) {
         bgClass = "morning-bg";
-    } else if (hour >= 12 && hour < 4) {
+    } else if (hour >= 12 && hour < 17) {
         bgClass = "day-bg";
-    } else if (hour >= 4 && hour <= 21) {
+    } else if (hour >= 17 && hour <= 21) {
         bgClass = "evening-bg";
     } else {
         bgClass = "night-bg";

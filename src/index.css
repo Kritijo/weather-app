@@ -18,7 +18,7 @@
   --evening-gradient: radial-gradient(
     circle at 50% 20%,
     #738ede 40%,
-    #d8bfd8 100%
+    #ae90ae 100%
   );
   --night-gradient: radial-gradient(
     125% 125% at 50% 10%,
@@ -33,7 +33,7 @@
 
   color: white;
   background: white;
-  background: var(--day-gradient);
+  background: var(--morning-gradient);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
