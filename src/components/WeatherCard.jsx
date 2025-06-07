@@ -7,12 +7,16 @@ const WeatherCard = ({ weather, locationName }) => {
     const readableDate = dayjs(weather.days[0].datetime).format(
         "dddd | D MMMM YYYY"
     );
+    const isCoordinate = /^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(
+        weather.resolvedAddress
+    );
+    const displayName = isCoordinate ? locationName : weather.resolvedAddress;
 
     return (
         <div className={"bg-[rgba(255,255,255,0.1)] p-4 rounded-3xl"}>
             <h2 className="text-sm sm:text-xl font-semibold flex items-center">
                 <Icon path={mdiMapMarker} size={1} />
-                {locationName || weather.resolvedAddress}
+                {displayName}
             </h2>
             <div className="flex gap-5">
                 <div className="w-full">

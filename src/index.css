@@ -3,15 +3,40 @@
 @tailwind utilities;
 
 :root {
+  --day-gradient: radial-gradient(
+    125% 125% at 50% 10%,
+    #255289 0%,
+    #609ac6 40%,
+    #223c4e 100%
+  );
+
+  --night-gradient: radial-gradient(
+    125% 125% at 50% 10%,
+    #1e293b 0%,
+    #0f172a 40%,
+    #203078 100%
+  );
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: #ffffff;
-  background: #333;
+  color: white;
+  background: white;
+  background: var(--night-gradient);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .day-bg {
+    background: var(--day-gradient);
+  }
+
+  .night-bg {
+    background: var(--night-gradient);
+  }
 }
