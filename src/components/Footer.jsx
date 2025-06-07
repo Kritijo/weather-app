@@ -4,7 +4,7 @@ const Footer = () => {
             <p>© {new Date().getFullYear()} Weatherly. All rights reserved.</p>
             <p>
                 Designed and developed by{" "}
-                <a className="hover:underline" href="#" target="_blank">
+                <a className="hover:underline" href="https://github.com/Kritijo/weather-app" target="_blank">
                     @kritijo
                 </a>
             </p>
