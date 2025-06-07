@@ -11,7 +11,9 @@ const useFetch = (input, tempUnit) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=uk&key=WE3DTCFXMA4ZSAM2M2LYSRYFH&contentType=json`
+                    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=${tempUnit}&key=${
+                        import.meta.env.VITE_WEATHER_API_KEY
+                    }&contentType=json`
                 );
 
                 setData(response.data);

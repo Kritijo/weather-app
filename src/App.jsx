@@ -13,8 +13,9 @@ import DailyForecast from "./components/DailyForecast";
 
 function App() {
     const [query, setQuery] = useState(null);
+    const [tempUnit, setTempUnit] = useState("uk");
     const { locationName } = useLocation(setQuery);
-    const { data, loading, error } = useFetch(query);
+    const { data, loading, error } = useFetch(query, tempUnit);
 
     useEffect(() => {
         changeBg(data);
@@ -22,20 +23,25 @@ function App() {
 
     return (
         <>
-            <NavBar onSearch={setQuery} />
+            <NavBar
+                onSearch={setQuery}
+                onClick={setTempUnit}
+                tempUnit={tempUnit}
+            />
             <main className="p-4 max-w-3xl my-4 mx-auto flex flex-col gap-4 min-h-screen">
                 {loading && <Loader />}
-                {error && <p>{error}</p>}
+                {error && <p className="font-semibold text-center">{error}</p>}
                 {data && (
                     <>
                         <WeatherCard
                             weather={data}
                             locationName={locationName}
+                            tempUnit={tempUnit}
                         />
-                        <HourlyForecast weather={data} />
                         <DailyForecast weather={data} />
-                        <WeatherMetrics weather={data} />
                         <SunCycle weather={data} />
+                        <HourlyForecast weather={data} tempUnit={tempUnit} />
+                        <WeatherMetrics weather={data} />
                     </>
                 )}
             </main>

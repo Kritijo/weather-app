@@ -3,7 +3,7 @@ import { mdiMapMarker } from "@mdi/js";
 import iconMap from "../utils/IconMap";
 import dayjs from "dayjs";
 
-const WeatherCard = ({ weather, locationName }) => {
+const WeatherCard = ({ weather, locationName, tempUnit }) => {
     const readableDate = dayjs(weather.days[0].datetime).format(
         "dddd | D MMMM YYYY"
     );
@@ -21,7 +21,8 @@ const WeatherCard = ({ weather, locationName }) => {
             <div className="flex gap-5">
                 <div className="w-full">
                     <p className="text-4xl md:text-6xl my-4 font-extrabold">
-                        {weather.currentConditions.temp}°C
+                        {weather.currentConditions.temp}°
+                        {tempUnit === "us" ? "F" : "C"}
                     </p>
                     <p className="text-xl sm:text-2xl font-bold capitalize">
                         {weather.currentConditions.conditions}

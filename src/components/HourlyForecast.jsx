@@ -10,7 +10,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         return (
             <div className="bg-white/90 border border-sky-300 rounded-lg p-3 shadow-md text-sky-800 text-sm">
                 <p className="font-semibold">Time: {label}</p>
-                <p>Temperature: {temperature}°C</p>
+                <p>Temperature: {temperature}°</p>
             </div>
         );
     }

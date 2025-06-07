@@ -1,16 +1,16 @@
 const changeBg = (weather) => {
     if (!weather) return;
 
-    const { datetime, sunrise, sunset } = weather.currentConditions;
+    const { datetime, sunrise } = weather.currentConditions;
 
     const hour = parseInt(datetime.split(":").shift());
     let bgClass = "morning-bg";
 
     if (datetime >= sunrise && hour < 12) {
         bgClass = "morning-bg";
-    } else if (hour >= 12 && datetime < sunset) {
+    } else if (hour >= 12 && hour < 4) {
         bgClass = "day-bg";
-    } else if (datetime >= sunset && hour < 21) {
+    } else if (hour >= 4 && hour <= 21) {
         bgClass = "evening-bg";
     } else {
         bgClass = "night-bg";
