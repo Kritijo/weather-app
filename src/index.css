@@ -3,13 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --day-gradient: radial-gradient(
+  --morning-gradient: radial-gradient(
     125% 125% at 50% 10%,
     #255289 0%,
     #609ac6 40%,
     #223c4e 100%
   );
-
+  --day-gradient: radial-gradient(
+    circle at 50% 10%,
+    #287f7f 0%,
+    #29927188 40%,
+    #287f7f 100%
+  );
+  --evening-gradient: radial-gradient(
+    circle at 50% 20%,
+    #738ede 40%,
+    #d8bfd8 100%
+  );
   --night-gradient: radial-gradient(
     125% 125% at 50% 10%,
     #1e293b 0%,
@@ -23,7 +33,7 @@
 
   color: white;
   background: white;
-  background: var(--night-gradient);
+  background: var(--day-gradient);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,8 +42,16 @@
 }
 
 @layer utilities {
+  .morning-bg {
+    background: var(--morning-gradient);
+  }
+
   .day-bg {
     background: var(--day-gradient);
+  }
+
+  .evening-bg {
+    background: var(--evening-gradient);
   }
 
   .night-bg {
